@@ -5,6 +5,45 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="03344ac1-e298-4aae-8f6c-b0020b20080a" name="Changes" comment="chore">
+      <change afterPath="$PROJECT_DIR$/src/data/cart.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/data/category.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/data/product.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/data/users.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/data/usersLogin.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PROJECT_MD3.iml" beforeDir="false" afterPath="$PROJECT_DIR$/PROJECT_MD3.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/PROJECT_MD3/bussiness/classes/AuthBussiness.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/PROJECT_MD3/bussiness/classes/CategoryBusiness.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/PROJECT_MD3/bussiness/classes/ProductBussiness.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/PROJECT_MD3/bussiness/classes/UserBussiness.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/PROJECT_MD3/bussiness/exception/UsernameAndPasswordException.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/PROJECT_MD3/bussiness/interfaces/ICategoryDesign.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/PROJECT_MD3/bussiness/interfaces/IGenericDesign.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/PROJECT_MD3/bussiness/interfaces/IProductDesign.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/PROJECT_MD3/bussiness/interfaces/IUserDesign.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/PROJECT_MD3/entity/Category.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/PROJECT_MD3/entity/IManagement.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/PROJECT_MD3/entity/Product.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/PROJECT_MD3/entity/RoleName.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/PROJECT_MD3/entity/User.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/PROJECT_MD3/presentation/controller/admin/CategoryManager.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/PROJECT_MD3/presentation/controller/admin/OrderManager.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/PROJECT_MD3/presentation/controller/admin/ProductManager.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/PROJECT_MD3/presentation/controller/admin/UserManager.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/PROJECT_MD3/presentation/controller/user/UserCotroller.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/PROJECT_MD3/presentation/run/Main.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/PROJECT_MD3/presentation/util/IOFile.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/PROJECT_MD3/presentation/util/InputMethods.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/bussiness/classes/AuthBussiness.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/bussiness/classes/AuthBussiness.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/bussiness/classes/CartBussiness.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/bussiness/classes/CartBussiness.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/bussiness/classes/ProductBussiness.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/bussiness/classes/ProductBussiness.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/bussiness/classes/UserBussiness.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/bussiness/classes/UserBussiness.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/entity/Cart.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/entity/Cart.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/entity/Product.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/entity/Product.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/entity/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/entity/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/presentation/controller/admin/UserManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/presentation/controller/admin/UserManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/presentation/run/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/presentation/run/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/presentation/util/IOFile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/presentation/util/IOFile.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -23,38 +62,50 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="GithubPullRequestsUISettings"><![CDATA[{
-  "selectedUrlAndAccountId": {
-    "url": "https://github.com/NgMyTran/MD3_PROJECT.git",
-    "accountId": "fe54fcae-e653-435b-a501-830912eed06e"
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;NgMyTran&quot;
   }
-}]]></component>
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/NgMyTran/MD3_PROJECT.git&quot;,
+    &quot;accountId&quot;: &quot;fe54fcae-e653-435b-a501-830912eed06e&quot;
+  }
+}</component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 6
 }</component>
   <component name="ProjectId" id="2ioBCghzrjwByYpOXNRmJNzQI2M" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
     "Application.Main.executor": "Run",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "WebServerToolWindowFactoryState": "false",
     "git-widget-placeholder": "main",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/TRAN/INTELLIJ/Intel-MD3/Bt_MD3",
+    "last_opened_file_path": "C:/Users/TRAN/INTELLIJ/Intel-MD3/Tran_PROJECT_MD3",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
     "onboarding.tips.debug.path": "C:/Users/TRAN/INTELLIJ/Intel-MD3/PROJECT_MD3/src/Main.java",
-    "project.structure.last.edited": "Libraries",
-    "project.structure.proportion": "0.0",
+    "project.structure.last.edited": "Project",
+    "project.structure.proportion": "0.17",
     "project.structure.side.proportion": "0.0",
+    "settings.editor.selected.configurable": "watcher.settings",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
@@ -109,6 +160,11 @@
       <workItem from="1720588040497" duration="17641000" />
       <workItem from="1720662331966" duration="725000" />
       <workItem from="1720663141185" duration="2377000" />
+      <workItem from="1720665895196" duration="512000" />
+      <workItem from="1720666415960" duration="5077000" />
+      <workItem from="1720689751845" duration="42000" />
+      <workItem from="1720691204182" duration="10293000" />
+      <workItem from="1720706845889" duration="7972000" />
     </task>
     <task id="LOCAL-00001" summary="chore">
       <option name="closed" value="true" />
@@ -125,6 +181,7 @@
     <option name="version" value="3" />
   </component>
   <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="chore" />
     <option name="LAST_COMMIT_MESSAGE" value="chore" />
   </component>
@@ -132,168 +189,138 @@
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/presentation/controller/admin/ProductManager.java</url>
-          <line>59</line>
-          <option name="timeStamp" value="2" />
+          <url>file://$PROJECT_DIR$/src/bussiness/classes/UserBussiness.java</url>
+          <line>93</line>
+          <option name="timeStamp" value="44" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/bussiness/classes/UserBussiness.java</url>
+          <line>84</line>
+          <option name="timeStamp" value="63" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/bussiness/classes/UserBussiness.java</url>
+          <line>85</line>
+          <option name="timeStamp" value="64" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/bussiness/classes/UserBussiness.java</url>
+          <line>86</line>
+          <option name="timeStamp" value="65" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/bussiness/classes/UserBussiness.java</url>
+          <line>87</line>
+          <option name="timeStamp" value="66" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/bussiness/classes/UserBussiness.java</url>
+          <line>88</line>
+          <option name="timeStamp" value="68" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/bussiness/classes/UserBussiness.java</url>
+          <line>90</line>
+          <option name="timeStamp" value="69" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/bussiness/classes/UserBussiness.java</url>
+          <line>78</line>
+          <option name="timeStamp" value="72" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/bussiness/classes/UserBussiness.java</url>
+          <line>77</line>
+          <option name="timeStamp" value="73" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/bussiness/classes/UserBussiness.java</url>
+          <line>75</line>
+          <option name="timeStamp" value="74" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/bussiness/classes/UserBussiness.java</url>
+          <line>74</line>
+          <option name="timeStamp" value="75" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/bussiness/classes/UserBussiness.java</url>
+          <line>76</line>
+          <option name="timeStamp" value="76" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/presentation/run/Main.java</url>
-          <line>484</line>
-          <option name="timeStamp" value="20" />
+          <line>225</line>
+          <option name="timeStamp" value="184" />
         </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/presentation/controller/admin/ProductManager.java</url>
-          <line>75</line>
-          <option name="timeStamp" value="90" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/presentation/controller/admin/ProductManager.java</url>
-          <line>76</line>
-          <option name="timeStamp" value="91" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/presentation/controller/admin/ProductManager.java</url>
-          <line>77</line>
-          <option name="timeStamp" value="92" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/presentation/controller/admin/ProductManager.java</url>
-          <line>78</line>
-          <option name="timeStamp" value="93" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/presentation/controller/admin/ProductManager.java</url>
-          <line>79</line>
-          <option name="timeStamp" value="94" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/presentation/controller/admin/ProductManager.java</url>
-          <line>81</line>
-          <option name="timeStamp" value="95" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/presentation/controller/admin/ProductManager.java</url>
-          <line>82</line>
-          <option name="timeStamp" value="96" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/presentation/controller/admin/ProductManager.java</url>
-          <line>80</line>
-          <option name="timeStamp" value="97" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/presentation/controller/admin/ProductManager.java</url>
-          <line>84</line>
-          <option name="timeStamp" value="98" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/presentation/controller/admin/ProductManager.java</url>
-          <line>83</line>
-          <option name="timeStamp" value="99" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/presentation/controller/admin/ProductManager.java</url>
-          <line>85</line>
-          <option name="timeStamp" value="100" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/presentation/controller/admin/ProductManager.java</url>
-          <line>86</line>
-          <option name="timeStamp" value="101" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/entity/Product.java</url>
-          <line>19</line>
-          <option name="timeStamp" value="102" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/entity/Product.java</url>
-          <line>20</line>
-          <option name="timeStamp" value="103" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/entity/Product.java</url>
-          <line>21</line>
-          <option name="timeStamp" value="104" />
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/src/bussiness/classes/UserBussiness.java</url>
+          <line>73</line>
+          <properties class="bussiness.classes.UserBussiness" method="blockUser">
+            <option name="EMULATED" value="true" />
+            <option name="WATCH_EXIT" value="false" />
+          </properties>
+          <option name="timeStamp" value="45" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-method">
           <url>file://$PROJECT_DIR$/src/presentation/run/Main.java</url>
-          <line>182</line>
+          <line>173</line>
           <properties class="presentation.run.Main" method="menuAdmin">
             <option name="EMULATED" value="true" />
             <option name="WATCH_EXIT" value="false" />
           </properties>
-          <option name="timeStamp" value="37" />
+          <option name="timeStamp" value="61" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-method">
-          <url>file://$PROJECT_DIR$/src/presentation/run/Main.java</url>
-          <line>214</line>
-          <properties class="presentation.run.Main" method="menuUser">
+          <url>file://$PROJECT_DIR$/src/bussiness/classes/UserBussiness.java</url>
+          <line>83</line>
+          <properties class="bussiness.classes.UserBussiness" method="unblockUser">
             <option name="EMULATED" value="true" />
             <option name="WATCH_EXIT" value="false" />
           </properties>
-          <option name="timeStamp" value="38" />
+          <option name="timeStamp" value="62" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-method">
-          <url>file://$PROJECT_DIR$/src/presentation/run/Main.java</url>
-          <line>405</line>
-          <properties class="presentation.run.Main" method="displayUserInfo">
+          <url>file://$PROJECT_DIR$/src/presentation/controller/admin/UserManager.java</url>
+          <line>90</line>
+          <properties class="presentation.controller.admin.UserManager" method="blockUser">
             <option name="EMULATED" value="true" />
             <option name="WATCH_EXIT" value="false" />
           </properties>
-          <option name="timeStamp" value="42" />
+          <option name="timeStamp" value="78" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-method">
-          <url>file://$PROJECT_DIR$/src/presentation/run/Main.java</url>
-          <line>91</line>
-          <properties class="presentation.run.Main" method="register">
+          <url>file://$PROJECT_DIR$/src/presentation/controller/admin/UserManager.java</url>
+          <line>104</line>
+          <properties class="presentation.controller.admin.UserManager" method="unblockUser">
             <option name="EMULATED" value="true" />
             <option name="WATCH_EXIT" value="false" />
           </properties>
-          <option name="timeStamp" value="72" />
+          <option name="timeStamp" value="79" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-method">
-          <url>file://$PROJECT_DIR$/src/presentation/run/Main.java</url>
-          <line>63</line>
-          <properties class="presentation.run.Main" method="login">
+          <url>file://$PROJECT_DIR$/src/bussiness/classes/AuthBussiness.java</url>
+          <line>18</line>
+          <properties class="bussiness.classes.AuthBussiness" method="signUp">
             <option name="EMULATED" value="true" />
             <option name="WATCH_EXIT" value="false" />
           </properties>
-          <option name="timeStamp" value="73" />
+          <option name="timeStamp" value="102" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-method">
-          <url>file://$PROJECT_DIR$/src/presentation/run/Main.java</url>
-          <line>454</line>
-          <properties class="presentation.run.Main" method="changePassword">
+          <url>file://$PROJECT_DIR$/src/bussiness/classes/AuthBussiness.java</url>
+          <line>26</line>
+          <properties class="bussiness.classes.AuthBussiness" method="signIn">
             <option name="EMULATED" value="true" />
             <option name="WATCH_EXIT" value="false" />
           </properties>
-          <option name="timeStamp" value="85" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-method">
-          <url>file://$PROJECT_DIR$/src/presentation/run/Main.java</url>
-          <line>414</line>
-          <properties class="presentation.run.Main" method="updateUserInfo">
-            <option name="EMULATED" value="true" />
-            <option name="WATCH_EXIT" value="false" />
-          </properties>
-          <option name="timeStamp" value="86" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-method">
-          <url>file://$PROJECT_DIR$/src/presentation/controller/admin/ProductManager.java</url>
-          <line>74</line>
-          <properties class="presentation.controller.admin.ProductManager" method="addNewProduct">
-            <option name="EMULATED" value="true" />
-            <option name="WATCH_EXIT" value="false" />
-          </properties>
-          <option name="timeStamp" value="89" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-field">
-          <url>file://$PROJECT_DIR$/src/presentation/util/IOFile.java</url>
-          <properties field="autoId" class="presentation.util.IOFile" />
-          <option name="timeStamp" value="51" />
+          <option name="timeStamp" value="131" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
   </component>
 </project>

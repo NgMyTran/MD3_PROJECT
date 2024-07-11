@@ -1,6 +1,7 @@
 package bussiness.classes;
 
 import bussiness.interfaces.IUserDesign;
+import com.sun.xml.internal.ws.policy.privateutil.PolicyUtils;
 import entity.User;
 import presentation.util.IOFile;
 
@@ -70,6 +71,25 @@ public class UserBussiness implements IUserDesign {
         }
     }
 
+    public boolean blockUser(int userId) {
+        User user = findById(userId);
+        if (user != null) {
+            user.setBlocked(true);
+            update(user);
+        }
+        IOFile.writeToFile(IOFile.USER_PATH, users);
+        return true;
+    }
+
+    public boolean unblockUser(int userId) {
+        User user = findById(userId);
+        if (user != null) {
+            user.setBlocked(false);
+            update(user);
+        }
+        IOFile.writeToFile(IOFile.USER_PATH, users);
+        return true;
+    }
 
 //    public void logout() {
 //        users.clear();

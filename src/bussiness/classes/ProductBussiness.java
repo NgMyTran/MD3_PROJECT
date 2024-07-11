@@ -1,9 +1,14 @@
 package bussiness.classes;
 
 import bussiness.interfaces.IProductDesign;
+//import entity.Cart;
+import entity.Category;
 import entity.Product;
 import presentation.util.IOFile;
+import bussiness.classes.CategoryBusiness;
+import presentation.util.InputMethods;
 
+import java.util.ArrayList;
 import java.util.List;
 
     public class ProductBussiness implements IProductDesign {
@@ -69,5 +74,41 @@ import java.util.List;
             }
             return false;
         }
+
+        // Phương thức hiển thị sản phẩm theo danh mục
+        public void displayProductsByCategory() {
+//            ICategoryDesign categoryDesign = new CategoryBusiness();
+//            List<Category> categories = categoryDesign.findAll();
+            CategoryBusiness categoryBussiness = new CategoryBusiness();
+            List<Category> categories = categoryBussiness.findAll();
+            // Hiển thị danh sách danh mục cho người dùng chọn
+            System.out.println("Danh sách danh mục:");
+            for (int i = 0; i < categories.size(); i++) {
+                System.out.printf("| STT: %-3d | Name: %-15s |\n", i + 1, categories.get(i).getName());
+            }
+            System.out.println("Chọn số thứ tự danh mục để xem sản phẩm:");
+            int categoryIndex = InputMethods.getInteger() - 1;  // Chuyển đổi từ STT thành chỉ số danh sách
+
+            if (categoryIndex >= 0 && categoryIndex < categories.size()) {
+                int categoryId = categories.get(categoryIndex).getId();
+                List<Product> filteredProducts = new ArrayList<>();
+                for (Product product : products) {
+                    if (product.getCategoryId() == categoryId) {
+                        filteredProducts.add(product);
+                    }
+                }
+                if (filteredProducts.isEmpty()) {
+                    System.out.println("Danh mục này chưa có sản phẩm.");
+                } else {
+                    System.out.println("Danh sách sản phẩm thuộc danh mục '" + categories.get(categoryIndex).getName() + "':");
+                    for (Product product : filteredProducts) {
+                        product.displayData();
+                    }
+                }
+            } else {
+                System.err.println("Danh mục không hợp lệ.");
+            }
+        }
+
 
     }

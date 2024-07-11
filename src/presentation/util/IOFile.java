@@ -17,67 +17,48 @@ public class IOFile {
     public static final String CART_PATH = "src/data/cart.txt";
 
     public static <T> List<T> readFromFile(String path) {
-        FileInputStream fis = null;
-        ObjectInputStream ois = null;
         try {
-            fis = new FileInputStream(path);
-            ois = new ObjectInputStream(fis);
-            return (List<T>) ois.readObject();
-//
+            File file = new File(path);
+            // Ensure the parent directory exists and create the file if it does not exist
+            if (!file.exists()) {
+                if (file.getParentFile() != null) file.getParentFile().mkdirs();
+                file.createNewFile();
+                // If the file is the user file, initialize it with a default admin user
+                if (path.equals(USER_PATH)) {
+                    List<User> users = new ArrayList<>();
+                    User adminUser = new User(0, "admin", "admin@gmail.com", BCrypt.hashpw("admin123", BCrypt.gensalt()), null, null, null, false, RoleName.ADMIN);
+                    users.add(adminUser);
+                    writeToFile(USER_PATH, users);
+                }
+            }
+            // Proceed to read from the file
+            try (FileInputStream fis = new FileInputStream(path);
+                 ObjectInputStream ois = new ObjectInputStream(fis)) {
+                return (List<T>) ois.readObject();
+            } catch (EOFException e) {
+                System.err.println("File is empty.");
+                return new ArrayList<>(); // Return an empty list instead of null
+            }
         } catch (FileNotFoundException e) {
-            System.err.println("File doesn't exist");
-        } catch (EOFException e) {
-            System.err.println("file trống");
-            User admin = new User(0, "admin", "admin@gmail.com", BCrypt.hashpw("admin123", BCrypt.gensalt()), null, null, null, false, RoleName.ADMIN);
-            List<User> users = new ArrayList<>();
-            users.add(admin);
-            writeToFile(USER_PATH, users);
-            return (List<T>) users;
+            System.err.println("Unexpected error: File should have been created.");
         } catch (IOException | ClassNotFoundException e) {
             e.printStackTrace();
-        } finally {
-            try {
-                if (ois != null) {
-                    ois.close();
-                }
-                if (fis != null) {
-                    fis.close();
-                }
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
         }
-        return new ArrayList<>();
+        return new ArrayList<>(); // Return an empty list instead of null to handle errors better
     }
-    // Ghi danh sách vào tệp
 
+    // Writes objects to a file
     public static <T> void writeToFile(String path, List<T> data) {
-        FileOutputStream fos = null;
-        ObjectOutputStream oos = null;
-        try {
-            fos = new FileOutputStream(path);
-            oos = new ObjectOutputStream(fos);
+        try (FileOutputStream fos = new FileOutputStream(path);
+             ObjectOutputStream oos = new ObjectOutputStream(fos)) {
             oos.writeObject(data);
-            System.out.println("Object has been written to " + path);
+            oos.flush();
         } catch (IOException e) {
-            System.err.println("eee");
             e.printStackTrace();
-        } finally {
-            try {
-                if (oos != null) {
-                    oos.close();
-                }
-                if (fos != null) {
-                    fos.close();
-                }
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
         }
     }
 
-
-    // Đọc người dùng đã đăng nhập từ tệp
+    // Reads the logged-in user from a file
     public static User readUserLogin() {
         try (FileInputStream fis = new FileInputStream(USERLOGIN_PATH);
              ObjectInputStream ois = new ObjectInputStream(fis)) {
@@ -92,7 +73,7 @@ public class IOFile {
         return null;
     }
 
-    // Ghi người dùng đã đăng nhập vào tệp
+    // Writes the logged-in user to a file
     public static void writeUserLogin(User userLogin) {
         try (FileOutputStream fos = new FileOutputStream(USERLOGIN_PATH);
              ObjectOutputStream oos = new ObjectOutputStream(fos)) {
@@ -102,7 +83,7 @@ public class IOFile {
         }
     }
 
-    // Đọc tên người dùng từ tệp
+    // Reads the username of the logged-in user from a file
     public static String readUserName() {
         try (FileInputStream fis = new FileInputStream(USERLOGIN_PATH);
              ObjectInputStream ois = new ObjectInputStream(fis)) {
@@ -117,7 +98,6 @@ public class IOFile {
         }
         return null;
     }
-
 
     // Ghi danh sách người dùng vào tệp
     public static void writeUsersToFile(List<User> data) {

@@ -2,6 +2,7 @@ package entity;
 
 import java.io.Serializable;
 import java.time.LocalDate;
+import entity.Product;
 
 public class User implements Serializable {
     private int userId;
@@ -13,9 +14,8 @@ public class User implements Serializable {
     private LocalDate birthday;
     private boolean isBlocked;
     private RoleName roleName;
-    private static  int nextId  = 1;
+    private static  int nextId  = 0;
 //    private Cart cart;
-
     public User(){
         this.userId = ++nextId;
     };
@@ -104,13 +104,6 @@ public class User implements Serializable {
     }
 
 
-//    public Cart getCart() {
-//        return cart;
-//    }
-//
-//    public void setCart(Cart cart) {
-//        this.cart = cart;
-//    }
     @Override
     public String toString() {
         return "User{" +
