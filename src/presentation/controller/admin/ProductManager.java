@@ -55,23 +55,39 @@ public class ProductManager {
         }
     }
 
-
-    private static void addNewProduct() {
-        if (categoryBusiness.findAll().isEmpty()) {
-            System.err.println("Chưa có danh mục , chọn '6. Quay lại' để  thêm danh mục trước khi thêm sản phẩm");
-            return;
-        }
-        System.out.println("Nhập số lượng cần thêm mới");
-        byte n = InputMethods.getByte();
-        for (int i = 0; i < n; i++) {
-            System.out.println("Nhập thông tin cho sanr phaamr thứ :" + (i + 1));
-            Product newProduct = new Product(); // chứa logic tự tăng
-            newProduct.inputData(); // cho nhập thông tin
-            productBussiness.create(newProduct); // luu lại
-        }
-        // thông báo thành công
-        System.out.println("Đã thêm mới thành cong " + n + " sản phẩm !");
+//
+//    private static void addNewProduct() {
+//        if (categoryBusiness.findAll().isEmpty()) {
+//            System.err.println("Chưa có danh mục , chọn '6. Quay lại' để  thêm danh mục trước khi thêm sản phẩm");
+//            return;
+//        }
+//        System.out.println("Nhập số lượng cần thêm mới");
+//        byte n = InputMethods.getByte();
+//        for (int i = 0; i < n; i++) {
+//            System.out.println("Nhập thông tin cho sp thứ :" + (i + 1));
+//            Product newProduct = new Product(); // chứa logic tự tăng
+//            newProduct.inputData(); // cho nhập thông tin
+//            productBussiness.create(newProduct); // luu lại
+//        }
+//        // thông báo thành công
+//        System.out.println("Đã thêm mới thành cong " + n + " sản phẩm !");
+//    }
+private static void addNewProduct() {
+    if (categoryBusiness.findAll().isEmpty()) {
+        System.err.println("Chưa có danh mục. Chọn '6. Quay lại' để thêm danh mục trước khi thêm sản phẩm.");
+        return;
     }
+    System.out.println("Nhập số lượng sản phẩm cần thêm mới:");
+    byte n = InputMethods.getByte();
+    for (int i = 0; i < n; i++) {
+        System.out.println("Nhập thông tin cho sản phẩm thứ " + (i + 1) + ":");
+        Product newProduct = new Product(); // Logic tự tăng ID
+        newProduct.inputData(); // Nhập thông tin cho sản phẩm
+        productBussiness.create(newProduct); // Lưu sản phẩm vào cơ sở dữ liệu
+    }
+    // Thông báo thành công
+    System.out.println("Đã thêm mới thành công " + n + " sản phẩm!");
+}
 
     public static void showProductList() {
         // lấy ra danh sách

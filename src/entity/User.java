@@ -14,7 +14,7 @@ public class User implements Serializable {
     private boolean isBlocked;
     private RoleName roleName;
     private static  int nextId  = 1;
-//    private static final long serialVersionUID = 1L;
+//    private Cart cart;
 
     public User(){
         this.userId = ++nextId;
@@ -33,6 +33,10 @@ public class User implements Serializable {
 
     public int getUserId() {
         return userId;
+    }
+
+    public void setUserId(int userId) {
+        this.userId = userId;
     }
 
     public String getPhone() {
@@ -99,31 +103,26 @@ public class User implements Serializable {
         isBlocked = blocked;
     }
 
-//    public String toString() {
-//        return String.format(
-//                """
-//                            User{
-//                            id=%d,
-//                            name='%s',
-//                            email='%s',
-//                            address='%s',
-//                            phone='%s',
-//                            cart=%s
-//                        }
-//                        """, userId, userName, email, address, phone,
-////                cart
-//        );
-//    }
 
+//    public Cart getCart() {
+//        return cart;
+//    }
+//
+//    public void setCart(Cart cart) {
+//        this.cart = cart;
+//    }
     @Override
     public String toString() {
         return "User{" +
                 "userId=" + userId +
                 ", userName='" + userName + '\'' +
                 ", email='" + email + '\'' +
-                ", password='" + password + '\'' +
+//                ", password='" + password + '\'' +
                 ", address='" + address + '\'' +
                 ", phone='" + phone + '\'' +
+                ", birthday=" + birthday + '\'' +
+                ", isBlocked=" + isBlocked +'\'' +
+//                ", cart=" + cart +'\'' +
                 "}\n";
     }
 }

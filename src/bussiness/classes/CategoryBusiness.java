@@ -46,6 +46,6 @@ public class CategoryBusiness implements ICategoryDesign {
                 return cat;
             }
         }
-        return null;
+        throw new RuntimeException("Category không có id: " + id);
     }
 }

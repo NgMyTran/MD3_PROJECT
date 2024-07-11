@@ -14,7 +14,7 @@ public class CategoryManager {
     public static void categoryManagementMenu() {
         while (true) {
             System.out.println("╔═══════════════════════════════════════════════╗");
-            System.out.println("║ ------------------Manage Category-------------║");
+            System.out.println("║ ----------------Manage Category---------------║");
             System.out.println("╠═══════════════════════════════════════════════╣");
             System.out.println("║ 1. Thêm mới                                   ║");
             System.out.println("║ 2. Hiển thị                                   ║");

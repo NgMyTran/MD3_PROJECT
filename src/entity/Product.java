@@ -7,6 +7,7 @@ import java.io.Serializable;
 import static bussiness.classes.CategoryBusiness.categories;
 
 public class Product implements IManagement, Serializable {
+//   private static CategoryBusiness categoryBusiness = new CategoryBusiness();
     private static int autoId = 0;
     private int id;
     private String name;
@@ -15,6 +16,10 @@ public class Product implements IManagement, Serializable {
     private int quantity;
     private boolean status;
     private int categoryId; // quan hệ hợp thanh
+
+//    static {
+//        categories = categoryBusiness.findAll(); // Khởi tạo categories từ danh sách danh mục có sẵn
+//    }
 
     public Product() {
         id = ++autoId;
@@ -88,29 +93,52 @@ public class Product implements IManagement, Serializable {
     }
 
     @Override
+//    public void inputData() {
+//        System.out.println("Nhập tên sản phẩm");
+//        name = InputMethods.getString();
+//        System.out.println("Nhập giá");
+//        price = InputMethods.getDouble();
+//        System.out.println(" Nhập mô tả");
+//        descriptions = InputMethods.getString();
+//        System.out.println("Nhập số lượng");
+//        quantity = InputMethods.getInteger();
+//        // chọn danh mục
+//        System.out.println("Danh sách danh mục");
+//        for (int i = 1; i <= categories.size(); i++) {
+//            System.out.printf("|STT : %-3s | Name : %-15s |\n", i, categories.get(i - 1).getName());
+//        }
+//        System.out.println("Moi ban chon danh muc cho sp");
+//        while (true) {
+//            int index = InputMethods.getInteger();
+//            if (index >= 1 && index <= categories.size()) {
+//                this.categoryId = categories.get(index - 1).getId();
+//                break;
+//            } else {
+//                System.err.println("Nhap khong chinh xac , vui long nhap lai");
+//            }
+//        }
+//    }
     public void inputData() {
-        System.out.println("Nhập tên sản phẩm");
+        System.out.println("Nhập tên sản phẩm:");
         name = InputMethods.getString();
-        System.out.println("Nhập giá");
+        System.out.println("Nhập giá:");
         price = InputMethods.getDouble();
-        System.out.println(" Nhập mô tả");
+        System.out.println("Nhập mô tả:");
         descriptions = InputMethods.getString();
-        System.out.println("Nhập số lươg");
+        System.out.println("Nhập số lượng:");
         quantity = InputMethods.getInteger();
-        // chọn danh mục
-        System.out.println("Danh sách danh mục");
+        // Chọn danh mục
+        System.out.println("Danh sách danh mục:");
         for (int i = 1; i <= categories.size(); i++) {
-            System.out.printf("|STT : %-3s | Name : %-15s |\n", i, categories.get(i - 1).getName());
+            System.out.printf("| STT: %-3s | Name: %-15s |\n", i, categories.get(i - 1).getName());
         }
-        System.out.println("Moi ban chon danh muc cho sp");
-        while (true) {
-            int index = InputMethods.getInteger();
-            if (index >= 1 && index <= categories.size()) {
-                this.categoryId = categories.get(index - 1).getId();
-                break;
-            } else {
-                System.err.println("Nhap khong chinh xac , vui long nhap lai");
-            }
+        System.out.println("Nhập số thứ tự danh mục:");
+        int categoryIndex = InputMethods.getInteger() - 1; // Chuyển đổi từ STT thành chỉ số danh sách
+        if (categoryIndex >= 0 && categoryIndex < categories.size()) {
+            categoryId = categories.get(categoryIndex).getId();
+        } else {
+            System.err.println("Danh mục không hợp lệ.");
+            return;
         }
     }
 
@@ -123,9 +151,11 @@ public class Product implements IManagement, Serializable {
         ICategoryDesign categoryDesign = new CategoryBusiness();
         Category cat = categoryDesign.findById(categoryId);
         if (cat == null) {
-            throw new RuntimeException("id ko tim thay");
+            throw new RuntimeException("Category không có id: " + id);
         }
         return cat.getName();
     }
+
+
 }
 

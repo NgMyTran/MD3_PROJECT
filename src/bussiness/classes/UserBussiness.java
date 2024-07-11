@@ -70,20 +70,6 @@ public class UserBussiness implements IUserDesign {
         }
     }
 
-    public boolean updateInfo(User updatedUser) {
-        for (User user : users) {
-            if (user.getUserId() == updatedUser.getUserId()) {
-                user.setUserName(updatedUser.getUserName());
-                user.setEmail(updatedUser.getEmail());
-                user.setAddress(updatedUser.getAddress());
-                user.setPhone(updatedUser.getPhone());
-                user.setPassword(updatedUser.getPassword()); // Optionally update password
-                IOFile.writeToFile(IOFile.USER_PATH, users);
-                return true;
-            }
-        }
-        return false; // User with given ID not found
-    }
 
 //    public void logout() {
 //        users.clear();

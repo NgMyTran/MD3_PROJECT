@@ -1,11 +1,11 @@
 package presentation.run;
 
 import bussiness.classes.AuthBussiness;
+//import bussiness.classes.CartBussiness;
+import bussiness.classes.ProductBussiness;
 import bussiness.classes.UserBussiness;
 import bussiness.exception.UsernameAndPasswordException;
-import bussiness.interfaces.IAuthDesign;
-import entity.RoleName;
-import entity.User;
+import entity.*;
 import org.mindrot.jbcrypt.BCrypt;
 import presentation.controller.admin.CategoryManager;
 import presentation.controller.admin.ProductManager;
@@ -17,38 +17,31 @@ import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeParseException;
 import java.util.List;
+import java.util.Scanner;
 
+import static bussiness.classes.ProductBussiness.products;
 import static bussiness.classes.UserBussiness.users;
 
 public class Main {
-    private static final IAuthDesign iAuthdesign = new AuthBussiness();
+    private static final AuthBussiness iAuthBussiness = new AuthBussiness();
     private static UserBussiness userBussiness = new UserBussiness();
+    private static ProductBussiness productBussiness = new ProductBussiness();
 
     //--------------  MAIN -----------
     public static void main(String[] args) {
-        // Đọc danh sách người dùng từ tệp
-        List<User> users = IOFile.readUsersFromFile();
+        Authentication(); // Call the Authentication method from the main method
+    }
 
-        // Nếu danh sách người dùng trống, tạo người dùng admin và lưu vào tệp
-        if (users.isEmpty()) {
-            User admin = new User(0, "admin", "admin@gmail.com", BCrypt.hashpw("admin123", BCrypt.gensalt()), null, null, null, false, RoleName.ADMIN);
-            users.add(admin);
-            IOFile.writeUsersToFile(users);
-        } else {
-            // Cập nhật ID người dùng tự động
-//            IOFile.setAutoId(users.get(users.size() - 1).getUserId() + 1);
-            IOFile.writeUsersToFile(users);
-        }
-
+    public static void Authentication() {
         while (true) {
             System.out.println("╔════════════════════════════════════╗");
-            System.out.println("║             Welcome to Store       ║");
+            System.out.println("║           Welcome to Store         ║");
             System.out.println("╠════════════════════════════════════╣");
             System.out.println("║  1. Đăng nhập                      ║");
             System.out.println("║  2. Đăng kí                        ║");
             System.out.println("║  3. Thoát                          ║");
             System.out.println("╚════════════════════════════════════╝");
-            byte choice = InputMethods.getByte();
+            byte choice = InputMethods.getByte(); // Assuming InputMethods.getByte() is a valid method for user input
             switch (choice) {
                 case 1:
                     login();
@@ -58,12 +51,9 @@ public class Main {
                     break;
                 case 3:
                     System.out.println("Tạm biệt");
-                    break;
+                    return; // Exit the method (and thus the loop) when choice is 3
                 default:
-                    System.err.println("ko đúng lựa chọn");
-            }
-            if (choice == 3) {
-                break;
+                    System.err.println("Ko đúng lựa chọn");
             }
         }
     }
@@ -72,14 +62,13 @@ public class Main {
 
     //--------------  ĐĂNG NHẬP------------
     private static void login() {
-
         System.out.println("=================Đăng nhập=================");
         System.out.println("Nhập email :");
         String userEmail = InputMethods.getString();
         System.out.println("Nhập password");
         String password = InputMethods.getString();
         try {
-            User userLogin = iAuthdesign.signIn(userEmail, password);
+            User userLogin = iAuthBussiness.signIn(userEmail, password);
             IOFile.writeUserLogin(userLogin);
             //xet quyen user
             if (userLogin.getRoleName().equals(RoleName.ADMIN)) {
@@ -112,83 +101,83 @@ public class Main {
             } else {
                 System.out.println("Tên đăng nhập không hợp lệ. Vui lòng nhập lại.");
             }
-        }
-        //Nhập và kiểm tra email
-        while (true) {
-            System.out.println("Nhập email: ");
-            String email = InputMethods.getString();
-            if (email.matches("^[a-zA-Z0-9_]+@[a-zA-Z]+\\.[a-zA-Z]+$")) {
-                user.setEmail(email);
-                break;
-            } else {
-                System.out.println("Email không hợp lệ. Vui lòng nhập lại.");
-            }
-        }
-        //Nhập và kiểm tra mật khẩu
-        while (true) {
-            System.out.println("Nhập mật khẩu: ");
-            String password = InputMethods.getString();
-            if (password.matches("^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)[a-zA-Z\\d]{8,}$")) {
-                user.setPassword(password);
-                break;
-            } else {
-                System.out.println("Mật khẩu phải có 1 chữ viết hoa, 1 chữ viết thường, 1 số và có 8 kí tự trở lên. Vui lòng nhập lại.");
-            }
-        }
-        // Confirm pass
-        while (true) {
-            System.out.println("Confirm password: ");
-            String confirmPassword = InputMethods.getString();
-            if (confirmPassword.equals(user.getPassword())) {
-                //Nhập và kiểm tra số điện thoại
-                while (true) {
-                    System.out.println("Nhập số điện thoại: ");
-                    String phone = InputMethods.getString();
-                    if (phone.matches("^(\\+84|0)\\d{8,9}$")) {
-                        user.setPhone(phone);
-                        break;
-                    } else {
-                        System.out.println("Số điện thoại không hợp lệ. Vui lòng nhập lại.");
-                    }
-                }
-                //Nhập và kiểm tra address
-                while (true) {
-                    System.out.println("Nhập địa chỉ: ");
-                    String address = InputMethods.getString();
-                    if (!address.isEmpty()) {
-                        user.setAddress(address);
-                        break;
-                    } else {
-                        System.out.println("Địa chỉ không hợp lệ. Vui lòng nhập lại.");
-                    }
-                }
-                //Nhập và kiểm tra birthday
-                while (true) {
-                    System.out.println("Nhập ngày tháng năm sinh (dd/MM/yyyy): ");
-                    String birthdayInput = InputMethods.getString();
-                    if (!birthdayInput.isEmpty()) {
-                        try {
-                            LocalDate birthday = LocalDate.parse(birthdayInput, DateTimeFormatter.ofPattern("dd/MM/yyyy"));
-                            user.setBirthday(birthday);
-                            break;
-                        } catch (DateTimeParseException e) {
-                            System.out.println("Ngày tháng không hợp lệ. Vui lòng nhập lại.");
-                        }
-                    } else {
-                        System.out.println("Ngày tháng không được để trống. Vui lòng nhập lại.");
-                    }
-                }
-                break; // If passwords match, exit the loop
-            } else {
-                System.out.println("Mật khẩu không khớp, vui lòng thử lại");
-            }
-        }
-        iAuthdesign.signUp(user);
-        System.out.println("Đăng kí thành công");
-        login();
-    }
-    //--------------END ĐĂNG KÝ-----------
 
+            //Nhập và kiểm tra email
+            while (true) {
+                System.out.println("Nhập email: ");
+                String email = InputMethods.getString();
+                if (email.matches("^[a-zA-Z0-9_]+@[a-zA-Z]+\\.[a-zA-Z]+$")) {
+                    user.setEmail(email);
+                    break;
+                } else {
+                    System.out.println("Email không hợp lệ. Vui lòng nhập lại.");
+                }
+            }
+            //Nhập và kiểm tra mật khẩu
+            while (true) {
+                System.out.println("Nhập mật khẩu: ");
+                String password = InputMethods.getString();
+                if (password.matches("^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)[a-zA-Z\\d]{8,}$")) {
+                    user.setPassword(password);
+                    break;
+                } else {
+                    System.out.println("Mật khẩu phải có 1 chữ viết hoa, 1 chữ viết thường, 1 số và có 8 kí tự trở lên. Vui lòng nhập lại.");
+                }
+            }
+            // Confirm pass
+            while (true) {
+                System.out.println("Confirm password: ");
+                String confirmPassword = InputMethods.getString();
+                if (confirmPassword.equals(user.getPassword())) {
+                    //Nhập và kiểm tra số điện thoại
+                    while (true) {
+                        System.out.println("Nhập số điện thoại: ");
+                        String phone = InputMethods.getString();
+                        if (phone.matches("^(\\+84|0)\\d{8,9}$")) {
+                            user.setPhone(phone);
+                            break;
+                        } else {
+                            System.out.println("Số điện thoại không hợp lệ. Vui lòng nhập lại.");
+                        }
+                    }
+                    //Nhập và kiểm tra address
+                    while (true) {
+                        System.out.println("Nhập địa chỉ: ");
+                        String address = InputMethods.getString();
+                        if (!address.isEmpty()) {
+                            user.setAddress(address);
+                            break;
+                        } else {
+                            System.out.println("Địa chỉ không hợp lệ. Vui lòng nhập lại.");
+                        }
+                    }
+                    //Nhập và kiểm tra birthday
+                    while (true) {
+                        System.out.println("Nhập ngày tháng năm sinh (dd/MM/yyyy): ");
+                        String birthdayInput = InputMethods.getString();
+                        if (!birthdayInput.isEmpty()) {
+                            try {
+                                LocalDate birthday = LocalDate.parse(birthdayInput, DateTimeFormatter.ofPattern("dd/MM/yyyy"));
+                                user.setBirthday(birthday);
+                                break;
+                            } catch (DateTimeParseException e) {
+                                System.out.println("Ngày tháng không hợp lệ. Vui lòng nhập lại.");
+                            }
+                        } else {
+                            System.out.println("Ngày tháng không được để trống. Vui lòng nhập lại.");
+                        }
+                    }
+                    break; // If passwords match, exit the loop
+                } else {
+                    System.out.println("Mật khẩu không khớp, vui lòng thử lại");
+                }
+            }
+            iAuthBussiness.signUp(user);
+            System.out.println("Đăng kí thành công");
+            login();
+        }
+        //--------------END ĐĂNG KÝ-----------
+    }
 
     //--------------  MENU ADMIN-----------
     public static void menuAdmin() {
@@ -213,7 +202,8 @@ public class Main {
                 break;
             case 4:
                 System.out.println("Đã thoát trang quản lý của ADMIN");
-                return;
+                Authentication();
+                break;
             default:
                 System.out.println("Lựa chọn không hợp lệ");
                 break;
@@ -242,7 +232,7 @@ public class Main {
         byte choice = InputMethods.getByte();
         switch (choice) {
             case 1:
-                ProductManager.showProductList();
+//                showAllProduct();
                 break;
             case 2:
                 //displayProductByCategory(scanner);
@@ -253,7 +243,7 @@ public class Main {
                 //showCart(user);
                 break;
             case 5:
-                //removeProductFromCart();
+//                removeProductFromCart();
                 break;
             case 6:
                 displayUserInfo();
@@ -268,8 +258,9 @@ public class Main {
                 // 8. Thanh toán
                 break;
             case 10:
-                //logout()
-                return;
+                Authentication();
+                break;
+//                return;
             default:
                 System.out.println("Lựa chọn không hợp lệ. Vui lòng nhập lại");
                 break;
@@ -279,35 +270,42 @@ public class Main {
 
 
 
-//        public static void displayAllProduct() {
-//            AdminService.showAllProduct();
+//    public static void showAllProduct() {
+//        if (products.isEmpty()) {
+//            System.out.println("Không có sản phẩm nào.");
+//            return;
 //        }
-//
-//        public static void displayProductByCategory(Scanner scanner) {
-//            System.out.println("Danh sách danh mục: ");
-//            AdminService.showAllCategory();
-//            System.out.println("Nhập id danh mục: ");
-//            String categoryName = scanner.nextLine();
-//            List<Product> productsByCategory = AdminService.findProductsByCategory(categoryName);
-//            if (productsByCategory.isEmpty()) {
-//                System.out.println("Không có sản phẩm trong danh mục này.");
-//            } else {
-//                System.out.println("Sản phẩm thuộc danh mục " + categoryName + ":");
-//                for (Product product : productsByCategory) {
-//                    System.out.println(product.toString());
-//                }
-//            }
+//        // Hiển thị tất cả sản phẩm chỉ có tên và giá
+//        for (Product product : products) {
+//            System.out.println(product.getId() + " - " + product.getName() + " - " + product.getPrice());
 //        }
-//
+//    }
+////
+////        public static void displayProductByCategory(Scanner scanner) {
+////            System.out.println("Danh sách danh mục: ");
+////            AdminService.showAllCategory();
+////            System.out.println("Nhập id danh mục: ");
+////            String categoryName = scanner.nextLine();
+////            List<Product> productsByCategory = AdminService.findProductsByCategory(categoryName);
+////            if (productsByCategory.isEmpty()) {
+////                System.out.println("Không có sản phẩm trong danh mục này.");
+////            } else {
+////                System.out.println("Sản phẩm thuộc danh mục " + categoryName + ":");
+////                for (Product product : productsByCategory) {
+////                    System.out.println(product.toString());
+////                }
+////            }
+////        }
+////
 //        public static void addProductToCart(User user) {
 //            Scanner scanner = new Scanner(System.in);
 //            // Hiển thị tất cả sản phẩm
-//            AdminService.showAllProduct();
-//            if (AdminService.products.isEmpty()) {
+//            ProductManager.showProductList();
+//            if (products.isEmpty()) {
 //                return;
 //            }
 //            System.out.println("Nhập id sản phẩm: ");
-//            String id = scanner.nextLine();
+//            int id = InputMethods.getInteger();
 //            System.out.println("Nhập số lượng: ");
 //            int quantity = Integer.parseInt(scanner.nextLine());
 //            // Kiểm tra số lượng
@@ -316,13 +314,13 @@ public class Main {
 //                quantity = Integer.parseInt(scanner.nextLine());
 //            }
 //            //kiểm tra số lượng tồn kho
-//            while (!CartService.checkQuantity(id, quantity)) {
+//            while (!CartBussiness.checkQuantity(id, quantity)) {
 //                System.out.println("Số lượng không đủ. Vui lòng nhập lại: ");
 //                quantity = Integer.parseInt(scanner.nextLine());
 //            }
 //
 //            // Tìm sản phẩm dựa trên id
-//            Product product = AdminService.findProductById(id);
+//            Product product = productBussiness.findById(id);
 //            if (product == null) {
 //                System.out.println("Không tìm thấy sản phẩm");
 //                return;
@@ -336,7 +334,7 @@ public class Main {
 //            // Kiểm tra xem sản phẩm đã tồn tại trong giỏ hàng chưa
 //            boolean found = false;
 //            for (CartItem cartItem : cart.getCartItems()) {
-//                if (cartItem.getProduct().getId().equals(product.getId())) {
+//                if (cartItem.getProduct().getId()==product.getId()) {
 //                    cartItem.setQuantity(cartItem.getQuantity() + quantity);
 //                    found = true;
 //                    break;
@@ -353,29 +351,28 @@ public class Main {
 //            cart.setTotal(cart.getTotal() + product.getPrice() * quantity);
 //
 //            // Cập nhật giỏ hàng
-//            CartService.addProductToCart(cart);
+//            CartBussiness.addProductToCart(cart);
 //        }
-//
-//        public static void viewCart(User user) {
-//            Cart cart = user.getCart();
-//            if (cart == null || cart.getCartItems().isEmpty()) {
-//                System.out.println("Giỏ hàng trống");
-//                return;
-//            }
-//            System.out.println("Danh sách sản phẩm trong giỏ hàng: ");
-//            for (CartItem cartItem : cart.getCartItems()) {
-//                int index = cart.getCartItems().indexOf(cartItem);
-//                System.out.println((index + 1) + ". " + cartItem.getProduct().getName() + " - " + cartItem.getQuantity() + " - " + cartItem.getProduct().getPrice() + " - " + cartItem.getProduct().getPrice() * cartItem.getQuantity());
-//            }
-//            System.out.println("Tổng tiền: " + cart.getTotal());
-//        }
-//
+
+////        public static void viewCart(User user) {
+////            Cart cart = user.getCart();
+////            if (cart == null || cart.getCartItems().isEmpty()) {
+////                System.out.println("Giỏ hàng trống");
+////                return;
+////            }
+////            System.out.println("Danh sách sản phẩm trong giỏ hàng: ");
+////            for (CartItem cartItem : cart.getCartItems()) {
+////                int index = cart.getCartItems().indexOf(cartItem);
+////                System.out.println((index + 1) + ". " + cartItem.getProduct().getName() + " - " + cartItem.getQuantity() + " - " + cartItem.getProduct().getPrice() + " - " + cartItem.getProduct().getPrice() * cartItem.getQuantity());
+////            }
+////            System.out.println("Tổng tiền: " + cart.getTotal());
+////        }
+////
 //        public static void removeProductFromCart() {
 //            Scanner scanner = new Scanner(System.in);
-//
 //            System.out.println("Nhập id sản phẩm cần xóa: ");
-//            String id = scanner.nextLine();
-//            CartService.removeProductFromCart(id);
+//            int id= InputMethods.getInteger();
+//            CartBussiness.removeProductFromCart(id);
 //        }
 //
 //        public static void pay(User user) {
@@ -414,75 +411,7 @@ public class Main {
             System.out.println("Không tìm thấy thông tin người dùng đăng nhập.");
         }
     }
-//
-//    private static void updateUserInfo() {
-//        User user = IOFile.readUserLogin();
-//        if (user != null) {
-//            System.out.println("Cập nhật thông tin cá nhân:");
-//            System.out.println("Nhập tên đăng nhập mới: ");
-//            String userName = InputMethods.getString();
-//            if (!userName.isEmpty()) {
-//                user.setUserName(userName);
-//            }
-//
-//            System.out.println("Nhập email mới: ");
-//            String email = InputMethods.getString();
-//            if (!email.isEmpty()) {
-//                user.setEmail(email);
-//            }
-//
-//            System.out.println("Nhập địa chỉ mới: ");
-//            String address = InputMethods.getString();
-//            if (!address.isEmpty()) {
-//                user.setAddress(address);
-//            }
-//
-//            System.out.println("Nhập số điện thoại mới: ");
-//            String phone = InputMethods.getString();
-//            if (!phone.isEmpty()) {
-//                user.setPhone(phone);
-//            }
-//
-//            boolean updated = userBussiness.updateInfo(user);
-//            if (updated) {
-//                IOFile.writeUserLogin(user); // Update the user login file with new details
-//                System.out.println("Cập nhật thông tin thành công.");
-//            } else {
-//                System.out.println("Cập nhật thông tin thất bại.");
-//            }
-//        } else {
-//            System.out.println("Không tìm thấy thông tin người dùng đăng nhập.");
-//        }
-//    }
-//
-//private static void changePassword() {
-//    User user = IOFile.readUserLogin();
-//    System.out.print("Nhập mật khẩu cũ: ");
-//    String oldPass = InputMethods.getString();
-//    if (user != null && BCrypt.checkpw(oldPass, user.getPassword())) {
-//        System.out.print("Nhập mật khẩu mới: ");
-//        String newPassword = InputMethods.getString();
-//        System.out.print("Xác nhận mật khẩu mới: ");
-//        String confirmPassword = InputMethods.getString();
-//
-//        if (!newPassword.isEmpty() && newPassword.equals(confirmPassword)) {
-//            String hashedPassword = BCrypt.hashpw(newPassword, BCrypt.gensalt());
-//            user.setPassword(hashedPassword);
-//            boolean updated = userBussiness.updateInfo(user);
-//            if (updated) {
-////                IOFile.writeUserLogin(user); // Update the user login file with new details
-//                System.out.println("Cập nhật mật khẩu thành công.");
-//                IOFile.writeToFile(IOFile.USER_PATH, users);
-//            } else {
-//                System.out.println("Cập nhật mật khẩu thất bại.");
-//            }
-//        } else {
-//            System.out.println("Mật khẩu xác nhận không khớp.");
-//        }
-//    } else {
-//        System.out.println("Mật khẩu cũ không chính xác.");
-//    }
-//}
+
 private static void updateUserInfo() {
     User user = IOFile.readUserLogin();
     if (user != null) {
@@ -511,7 +440,7 @@ private static void updateUserInfo() {
             user.setPhone(phone);
         }
 
-        boolean updated = userBussiness.updateInfo(user);
+        boolean updated = iAuthBussiness.updateInfo(user);
         if (updated) {
             IOFile.writeUserLogin(user); // Cập nhật tệp đăng nhập người dùng với thông tin mới
             System.out.println("Cập nhật thông tin thành công.");
@@ -537,15 +466,16 @@ private static void updateUserInfo() {
             if (!newPassword.isEmpty() && newPassword.equals(confirmPassword)) {
                 String hashedPassword = BCrypt.hashpw(newPassword, BCrypt.gensalt());
                 user.setPassword(hashedPassword);
-                boolean updated = userBussiness.updateInfo(user);
+                boolean updated = iAuthBussiness.updateInfo(user);
                 if (updated) {
-                    IOFile.writeToFile(IOFile.USER_PATH, IOFile.readUsersFromFile());  // Cập nhật danh sách người dùng từ tệp
                     System.out.println("Cập nhật mật khẩu thành công.");
                 } else {
                     System.out.println("Cập nhật mật khẩu thất bại.");
+                    menuUser();
                 }
             } else {
                 System.out.println("Mật khẩu xác nhận không khớp.");
+                menuUser();
             }
         } else {
             System.out.println("Mật khẩu cũ không chính xác.");
