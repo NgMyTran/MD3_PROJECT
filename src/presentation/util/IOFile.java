@@ -23,6 +23,7 @@ public class IOFile {
             fis = new FileInputStream(path);
             ois = new ObjectInputStream(fis);
             return (List<T>) ois.readObject();
+//
         } catch (FileNotFoundException e) {
             System.err.println("File doesn't exist");
         } catch (EOFException e) {

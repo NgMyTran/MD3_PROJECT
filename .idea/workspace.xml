@@ -4,43 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="03344ac1-e298-4aae-8f6c-b0020b20080a" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/PROJECT_MD3/bussiness/classes/AuthBussiness.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PROJECT_MD3/bussiness/classes/AuthBussiness.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/PROJECT_MD3/bussiness/classes/CartBussiness.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/PROJECT_MD3/bussiness/classes/CategoryBusiness.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PROJECT_MD3/bussiness/classes/CategoryBusiness.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/PROJECT_MD3/bussiness/classes/UserBussiness.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PROJECT_MD3/bussiness/classes/UserBussiness.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/PROJECT_MD3/bussiness/interfaces/IAuthDesign.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/PROJECT_MD3/bussiness/interfaces/ICartDesign.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/PROJECT_MD3/data/category.txt" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PROJECT_MD3/data/category.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/PROJECT_MD3/data/product.txt" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PROJECT_MD3/data/product.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/PROJECT_MD3/data/users.txt" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PROJECT_MD3/data/users.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/PROJECT_MD3/data/usersLogin.txt" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PROJECT_MD3/data/usersLogin.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/PROJECT_MD3/entity/Cart.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/PROJECT_MD3/entity/CartItem.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/PROJECT_MD3/entity/Product.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PROJECT_MD3/entity/Product.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/PROJECT_MD3/entity/User.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PROJECT_MD3/entity/User.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/PROJECT_MD3/presentation/controller/admin/CategoryManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PROJECT_MD3/presentation/controller/admin/CategoryManager.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/PROJECT_MD3/presentation/controller/admin/ProductManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PROJECT_MD3/presentation/controller/admin/ProductManager.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/PROJECT_MD3/presentation/run/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PROJECT_MD3/presentation/run/Main.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/PROJECT_MD3/presentation/util/IOFile.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PROJECT_MD3/presentation/util/IOFile.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/bussiness/classes/AuthBussiness.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/bussiness/classes/AuthBussiness.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/bussiness/classes/CartBussiness.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/bussiness/classes/CartBussiness.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/bussiness/classes/CategoryBusiness.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/bussiness/classes/CategoryBusiness.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/bussiness/classes/UserBussiness.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/bussiness/classes/UserBussiness.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/bussiness/interfaces/IAuthDesign.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/bussiness/interfaces/IAuthDesign.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/bussiness/interfaces/ICartDesign.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/data/category.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/data/product.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/data/users.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/data/usersLogin.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/entity/Cart.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/entity/Cart.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/entity/CartItem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/entity/CartItem.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/entity/Product.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/entity/Product.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/entity/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/entity/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/presentation/controller/admin/CategoryManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/presentation/controller/admin/CategoryManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/presentation/controller/admin/ProductManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/presentation/controller/admin/ProductManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/presentation/run/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/presentation/run/Main.java" afterDir="false" />
+    <list default="true" id="03344ac1-e298-4aae-8f6c-b0020b20080a" name="Changes" comment="chore">
       <change beforePath="$PROJECT_DIR$/src/presentation/util/IOFile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/presentation/util/IOFile.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -59,6 +23,12 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="GithubPullRequestsUISettings"><![CDATA[{
+  "selectedUrlAndAccountId": {
+    "url": "https://github.com/NgMyTran/MD3_PROJECT.git",
+    "accountId": "fe54fcae-e653-435b-a501-830912eed06e"
+  }
+}]]></component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 6
 }</component>
@@ -138,12 +108,25 @@
       <workItem from="1720582323390" duration="5262000" />
       <workItem from="1720588040497" duration="17641000" />
       <workItem from="1720662331966" duration="725000" />
-      <workItem from="1720663141185" duration="1775000" />
+      <workItem from="1720663141185" duration="2377000" />
     </task>
+    <task id="LOCAL-00001" summary="chore">
+      <option name="closed" value="true" />
+      <created>1720665485529</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1720665485529</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="chore" />
+    <option name="LAST_COMMIT_MESSAGE" value="chore" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
